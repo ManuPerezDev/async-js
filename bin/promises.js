@@ -7,14 +7,16 @@ function findBook (id) {
 
   return new Promise((resolve, reject) => {
     console.log('Simulating asynchronous repository call.')
-    const bookTitle = books[id]
-    if (!bookTitle) {
-      reject('Book not found!')
-    }
-    resolve(bookTitle)
+    setTimeout(() => {
+      const bookTitle = books[id]
+      if (!bookTitle) {
+        reject('Book not found!')
+      }
+      resolve(bookTitle)
+    }, 2000)
   })
 }
 
-findBook(1)
+findBook(3)
   .then((result) => console.log('Continuing program execution with result:', result))
   .catch((error) => console.log('Error:', error))
